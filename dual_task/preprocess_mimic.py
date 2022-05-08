@@ -59,6 +59,10 @@ def preprocess(dict_patient, store_path="./data/real_data/mimic/trim_diag_proc_d
     token2str = [diag_token2str, drug_token2str, proc_token2str]
 
     for k, v in all_pats.items():
+
+        if len(chosen_patients) > 1000:
+            break
+
         fail = False
         for adm in v:
             if min(len(adm[0]), len(adm[1]), len(adm[2])) == 0:
